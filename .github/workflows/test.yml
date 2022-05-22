@@ -3,10 +3,11 @@ on: [push]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
-    steps:
-      env:
-          repo_name: ${{ github.repository }}
+    steps:      
       - uses: actions/checkout@v3
-      - run: echo repo_name
+      - name: get github repo
+        env:
+          repo_name: ${{ github.repository }}
+        run: echo repo_name
       - run: echo ${{github.repository}}
       - run: echo ${{ github.repository }}
